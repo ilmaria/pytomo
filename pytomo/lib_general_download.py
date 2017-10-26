@@ -31,6 +31,10 @@ from .flvlib import tags
 from . import config_pytomo
 from . import lib_links_extractor
 
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
 # video download is a FSM with the following states
 INITIAL_BUFFERING_STATE = 0
 PLAYING_STATE = 1
@@ -467,7 +471,7 @@ template')
         # <scheme>://<netloc>/<path>?<query>#<fragment>
         urn = '?'.join((parsed_uri.path, parsed_uri.query))
         if ip_address:
-            uri = '://'.join((parsed_uri.scheme, ip_address)) + urn
+            #uri = '://'.join((parsed_uri.scheme, ip_address)) + urn
             headers = dict([('Host', parsed_uri.netloc)]
                            + config_pytomo.STD_HEADERS.items())
         else:
@@ -498,7 +502,7 @@ template')
                     config_pytomo.LOG.exception(err)
                     try:
                         # Open the connection again without the range header
-                        data = urllib2.urlopen(request, context=ssl._create_unverified_context())
+                        data = urllib2.urlopen(request, context=ctx)
                         #data = urllib2.urlopen(basic_request,
                         #                       timeout=config_pytomo.URL_TIMEOUT)
                         #data = opener.open(basic_request)
