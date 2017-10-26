@@ -49,7 +49,7 @@ LOOP = False
 
 # take related links
 #RELATED = True
-RELATED = True
+RELATED = False
 
 # Image file to save the graphs
 PLOT = False
