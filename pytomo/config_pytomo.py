@@ -13,14 +13,14 @@ USE_PACKAGE_DIR = False
 
 # execute crawl without prompting user for any parameters
 # put to True if you are running jobs automatically
-BATCH_MODE = False
+BATCH_MODE = True
 
 #PROVIDER = None
 PROVIDER = ''
 
 RESULT_DIR = 'results'
-RESULT_FILE = None
-#RESULT_FILE = 'pytomo.result'
+#RESULT_FILE = None
+RESULT_FILE = 'pytomo.result'
 
 DATABASE_DIR = 'databases'
 DATABASE = 'pytomo_database.db'
@@ -49,12 +49,12 @@ LOOP = False
 
 # take related links
 #RELATED = True
-RELATED = False
+RELATED = True
 
 # Image file to save the graphs
 PLOT = False
  # List containig the column names to be plotted
-COLUMN_NAMES = ['DownloadBytes', 'MaxInstantThp']
+COLUMN_NAMES = ['DownloadBytes', 'MaxInstantThp', 'PingAvg']
 # Choose from  [ PingMin , PingAvg , PingMax , DownloadTime, VideoDuration
 # VideoLength, EncodingRate, DownloadBytes, DownloadInterruptions,
 # BufferingDuration, PlaybackDuration, BufferDurationAtEnd, MaxInstantThp]
@@ -89,7 +89,7 @@ STD_HEADERS = {
 # for start_pytomo.py
 
 STATIC_URL_LIST = []
-INPUT_FILE = None
+INPUT_FILE = 'urls.txt'
 
 # Max number of rounds to perform
 MAX_ROUNDS = 10000
