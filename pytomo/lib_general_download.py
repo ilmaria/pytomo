@@ -475,8 +475,8 @@ template')
             headers = dict([('Host', parsed_uri.netloc)]
                            + config_pytomo.STD_HEADERS.items())
         else:
-            uri = url
             headers = config_pytomo.STD_HEADERS
+        uri = url
         #cookie_jar = cookielib.MozillaCookieJar()
         #cookie_jar.load(config_pytomo.cookie_file)
         basic_request = urllib2.Request(uri, None, config_pytomo.STD_HEADERS)
